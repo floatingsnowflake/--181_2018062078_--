@@ -77,7 +77,7 @@ public class Bomb : MonoBehaviour
 			// 获取检测到的碰撞器的刚体对象
 			Rigidbody2D rb = en.GetComponent<Rigidbody2D>();
 			// 如果是敌人
-/*			if (rb != null && rb.tag == "Enemy")
+			if (rb != null && rb.tag == "Enemy")
 			{
 				// 将hp设为0
 				rb.gameObject.GetComponent<Enemy>().HP = 0;
@@ -88,7 +88,6 @@ public class Bomb : MonoBehaviour
 				// 为敌人附加刚体力，使其被炸飞
 				rb.AddForce(force);
 			}
-*/
 		}
 
 		// 播放特效

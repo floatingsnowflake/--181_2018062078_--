@@ -6,42 +6,54 @@ using System.Collections;
 /// </summary>
 public class Gun : MonoBehaviour
 {
-	public Rigidbody2D rocket;              // Prefab of the rocket.
-	public float speed = 20f;               // The speed the rocket will fire at.
+	/// <summary>
+	/// 要发身的火箭刚体
+	/// </summary>
+	public Rigidbody2D rocket;
+	/// <summary>
+	/// 子弹的速度
+	/// </summary>
+	public float speed;
 
-
-	private PlayerControl playerCtrl;       // Reference to the PlayerControl script.
-	private Animator anim;                  // Reference to the Animator component.
-
+	private PlayerControl playerCtrl;
+	private Animator anim;
 
 	void Awake()
 	{
-		// Setting up the references.
+		// 当前脚本是附着在角色属下的一个空物体Gun中，所以要获取角色身上的脚本，需要用transform.root
 		anim = transform.root.gameObject.GetComponent<Animator>();
-		playerCtrl = transform.parent.GetComponent<PlayerControl>();
+		playerCtrl = transform.root.GetComponent<PlayerControl>();
 	}
 
+	// Use this for initialization
+	void Start()
+	{
 
+	}
+
+	// Update is called once per frame
 	void Update()
 	{
-		// If the fire button is pressed...
+		// 如果按下了攻击键（默认是鼠标左键）
 		if (Input.GetButtonDown("Fire1"))
 		{
-			// ... set the animator Shoot trigger parameter and play the audioclip.
+			// 播放动画，播放音效
 			anim.SetTrigger("Shoot");
 			GetComponent<AudioSource>().Play();
-
-			// If the player is facing right...
 			if (playerCtrl.facingRight)
 			{
-				// ... instantiate the rocket facing right and set it's velocity to the right. 
-				Rigidbody2D bulletInstance = Instantiate(rocket, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+				// 角色向右时，向右边发射子弹
+				// 实例化一个子弹
+				Rigidbody2D bulletInstance = Instantiate(rocket, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+				// 直接为刚体设置速度
 				bulletInstance.velocity = new Vector2(speed, 0);
 			}
 			else
 			{
-				// Otherwise instantiate the rocket facing left and set it's velocity to the left.
-				Rigidbody2D bulletInstance = Instantiate(rocket, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f)));
+				// 角色向左时，向右边发射子弹
+				// 实例化一个子弹
+				Rigidbody2D bulletInstance = Instantiate(rocket, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
+				// 直接为刚体设置速度
 				bulletInstance.velocity = new Vector2(-speed, 0);
 			}
 		}

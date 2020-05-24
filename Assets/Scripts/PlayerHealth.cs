@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
     private Vector3 healthScale;        // 血条比例，控制长度
     private PlayerControl playerControl;// 控制脚本
     private Rigidbody2D hero;
-    private Animator anim;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {

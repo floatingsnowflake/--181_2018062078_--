@@ -4,8 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Bullet
+  - HealthBar
   - Enemy
+  - Obstacle
+  - Ground
+  - Bombpickup
+  - ExplosionFX
   - BombPickup
+  - Bomb
   layers:
   - Default
   - TransparentFX
@@ -15,12 +22,12 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
+  - Bombs
   - Player
   - Enemies
   - Pickups
-  - 
-  - 
+  - Ground
+  - UI
   - 
   - 
   - 
@@ -43,18 +50,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Default
+    uniqueID: 1476865737
+    locked: 0
   - name: BackGround
-    uniqueID: 62689903
+    uniqueID: 4200656637
     locked: 0
-  - name: ForeGround
-    uniqueID: 3066517997
+  - name: Character
+    uniqueID: 1277263867
     locked: 0
-  - name: UFO
-    uniqueID: 798758471
-    locked: 0
-  - name: character
-    uniqueID: 1268634359
+  - name: Foreground
+    uniqueID: 2786225353
     locked: 0
   - name: UI
-    uniqueID: 2051185677
+    uniqueID: 305066373
     locked: 0
