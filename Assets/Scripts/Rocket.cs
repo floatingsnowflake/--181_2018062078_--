@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 火箭弹
+/// </summary>
 public class Rocket : MonoBehaviour
 {
 	/// <summary>
@@ -28,34 +31,27 @@ public class Rocket : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		// 根据碰撞到的对象的tag进行判断
-	/*			if (col.tag == "Enemy")
-				{
-					// 击中了敌人
+		if (col.tag == "Enemy")
+		{
+			// 击中了敌人
 
-					// 对敌人造成伤害
-					col.gameObject.GetComponent<Enemy>().Hurt();
-					// 爆炸
-					OnExplode();
-					Destroy(gameObject);
-				}
-				else if (col.tag == "BombPickup")
-				{
-					// 击中了炸弹箱子等道具
+			// 对敌人造成伤害
+			col.gameObject.GetComponent<Enemy>().Hurt();
+			// 爆炸
+			OnExplode();
+			Destroy(gameObject);
+		}
+		else if (col.tag == "BombPickup")
+		{
+			// 击中了炸弹箱子等道具
 
-					// 让道具爆炸，获得道具
-					col.gameObject.GetComponent<Bomb>().Explode();
-					// 释放被击中的道具对象和自己
-					Destroy(col.transform.root.gameObject);
-					Destroy(gameObject);
-				}
-				else if (col.tag != "Player")
-				{
-					// 击中了非玩家对象
-					OnExplode();
-					Destroy(gameObject);
-				}
-		*/
-		if (col.tag != "Player")
+			// 让道具爆炸，获得道具
+			col.gameObject.GetComponent<Bomb>().Explode();
+			// 释放被击中的道具对象和自己
+			Destroy(col.transform.root.gameObject);
+			Destroy(gameObject);
+		}
+		else if (col.tag != "Player")
 		{
 			// 击中了非玩家对象
 			OnExplode();
@@ -64,4 +60,3 @@ public class Rocket : MonoBehaviour
 	}
 
 }
-

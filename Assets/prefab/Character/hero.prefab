@@ -232,7 +232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4714836916626360198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.3, z: 0}
+  m_LocalPosition: {x: 0.04, y: -1.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4714836918409408333}
@@ -1155,11 +1155,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0eb3d0e5f04014482fc6694472a23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 365
-  maxSpeed: 8
-  jumpForce: 500
-  jump: 0
   facingRight: 1
+  jump: 0
+  moveForce: 365
+  jumpFore: 1000
+  maxSpeed: 8
+  jumpClips: []
+  tauntProbability: 50
+  tauntDelay: 1
+  taunts:
+  - {fileID: 8300000, guid: 47bc6e64f85e7b0468ee08f0ddbeba0e, type: 3}
+  - {fileID: 8300000, guid: 6aec8a9ef13fe0e45b47f0dd66b290c4, type: 3}
+  - {fileID: 8300000, guid: 7706db68e3f504746b369faf624a9f8d, type: 3}
+  - {fileID: 8300000, guid: feeb7e5f07acf6241bd2ad79d1fe7b82, type: 3}
+  - {fileID: 8300000, guid: 5d4eb35d7a4b54a48b4d3bf8d912409d, type: 3}
+  - {fileID: 8300000, guid: 532d5fc1c2f6ba6418aad53c1646693d, type: 3}
+  - {fileID: 8300000, guid: 6d0d008de0b50374db399ed5dfa25def, type: 3}
+  - {fileID: 8300000, guid: ce276174eb8f8e44faa768a3ae94d285, type: 3}
+  - {fileID: 8300000, guid: bdbd22185b9268e49b80dbc7fe818b98, type: 3}
 --- !u!95 &1719393660
 Animator:
   serializedVersion: 3
@@ -1191,11 +1204,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 902c5223808342243813c857ea5a4545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  HP: 100
   damageInterval: 2
   hurtForce: 100
   damageAmout: 20
-  anim: {fileID: 0}
+  anim: {fileID: 1719393660}
 --- !u!82 &1703770254
 AudioSource:
   m_ObjectHideFlags: 0

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 物体释放脚本
+/// </summary>
 public class Destroyer : MonoBehaviour
 {
     /// <summary>
@@ -59,3 +62,4 @@ public class Destroyer : MonoBehaviour
     }
 
 }
+

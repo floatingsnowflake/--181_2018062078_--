@@ -27,7 +27,7 @@ public class PickupSpawner : MonoBehaviour
 	/// <summary>
 	/// 只有玩家的生命值低于此值时才有可能出现医疗箱
 	/// </summary>
-	public float highHealthThreshold = 75f;
+	public float highHealthThreshold = 90f;
 	/// <summary>
 	/// 玩家生命值低于此值时，将只出现医疗箱
 	/// </summary>
@@ -64,10 +64,10 @@ public class PickupSpawner : MonoBehaviour
 		Vector3 dropPos = new Vector3(dropPosX, 15f, 1f);
 
 		// 如果玩家的生命值大于设定的出现医疗包的上限，则生成炸弹包
-		if (playerHealth.health >= highHealthThreshold)
+		if (playerHealth.HP >= highHealthThreshold)
 			Instantiate(pickups[0], dropPos, Quaternion.identity);
 		// 如果玩家的生命值小于设定的下限值时，则生成医疗包
-		else if (playerHealth.health <= lowHealthThreshold)
+		else if (playerHealth.HP <= lowHealthThreshold)
 			Instantiate(pickups[1], dropPos, Quaternion.identity);
 		// 否则， 随机生成医疗包或炸弹包
 		else

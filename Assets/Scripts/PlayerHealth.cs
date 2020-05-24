@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float health = 100f;
+    public float HP = 100f;
     public float damageInterval = 2f;
     public float hurtForce = 10f;
     public float damageAmout = 10f;
@@ -25,13 +25,15 @@ public class PlayerHealth : MonoBehaviour
         hero = GetComponent<Rigidbody2D>();
     }
 
-    void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
-        healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);
-        healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, healthScale.y, healthScale.z);
+        healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - HP * 0.01f);
+        healthBar.transform.localScale = new Vector3(healthScale.x * HP * 0.01f, healthScale.y, healthScale.z);
     }
 
-    void TakeDamage(Transform enemy)
+
+
+void TakeDamage(Transform enemy)
     {
         playerControl.jump = false;// 让玩家无法跳跃
         // 创建一个敌人把玩家向上推的向量
@@ -39,7 +41,7 @@ public class PlayerHealth : MonoBehaviour
         // 为玩家添加刚体力，使用上一步的向量
         hero.AddForce(hurtVector3 * hurtForce);
         // 减少玩家的生命值
-        health -= damageAmout;
+        HP -= damageAmout;
         UpdateHealthBar();
     }
     void Death()
@@ -67,11 +69,11 @@ public class PlayerHealth : MonoBehaviour
         {
             if (Time.time > lastHurtTime + damageInterval)
             {
-                if (health > 0f)
+                if (HP > 0f)
                 {
                     TakeDamage(collision.transform);
                     lastHurtTime = Time.time;
-                    if (health <= 0f)
+                    if (HP <= 0f)
                         Death();
                 }
                 else

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// 炸弹包
 public class BombPickup : MonoBehaviour
 {
 
