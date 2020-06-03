@@ -32,7 +32,7 @@ public class HealthPickup : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log(other.tag);
+//		Debug.Log(other.tag);
 		// 如果碰到玩家
 		if (other.tag == "Player")
 		{

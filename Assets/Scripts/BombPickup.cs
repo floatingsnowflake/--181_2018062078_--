@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 // 炸弹包
 public class BombPickup : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class BombPickup : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log(other.tag);
+//		Debug.Log(other.tag);
 		// 如果碰到玩家
 		if (other.tag == "Player")
 		{

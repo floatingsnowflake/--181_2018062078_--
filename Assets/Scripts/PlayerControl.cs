@@ -10,12 +10,12 @@ public class PlayerControl : MonoBehaviour
     /// <summary>
     /// 控制角色朝向
     /// </summary>
-    [HideInInspector] public bool facingRight = true;
+    public bool facingRight = true;
 
     /// <summary>
     /// 判断角色是否跳起
     /// </summary>
-    [HideInInspector] public bool jump = false;
+    public bool jump = false;
 
     /// <summary>
     /// 每次为角色添加的刚体力大小
@@ -51,18 +51,22 @@ public class PlayerControl : MonoBehaviour
     void Awake()
     {
         anim = GetComponent<Animator>();
-        groundCheck = transform.Find("GroundCheck");
+        groundCheck = transform.Find("groundCheck");
     }
 
     // Update is called once per frame
     void Update()
     {
         // 通过2D射线检测角色与辅助检测对象之间是否存在Ground层中的物体
-        grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-        // Debug.DrawLine (transform.position, groundCheck.position, Color.red, 1f);
+        grounded = Physics2D.Linecast(transform.position, groundCheck.position
+                                        , 1 << LayerMask.NameToLayer("Ground"));
         // 如果玩家按下了跳跃键，并且检测到地面，则进入跳跃状态
+
         if (Input.GetButtonDown("Jump") && grounded)
+        {
+            Debug.Log("1");
             jump = true;
+        }
     }
 
     void FixedUpdate()
@@ -93,7 +97,7 @@ public class PlayerControl : MonoBehaviour
             anim.SetTrigger("Jump");
             // 随机播放一个音效
             int i = Random.Range(0, jumpClips.Length);
-            AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
+  //          AudioSource.PlayClipAtPoint(jumpClips[i], transform.position);
             // 为角色跳跃增加向上的刚体力
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpFore));
             // 重置jump为false，以免为角色不断的增加向上刚体力
