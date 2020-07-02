@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
+using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
 	{
 		// 枚举在敌人前方的碰撞器
 		Collider2D[] frontHits = Physics2D.OverlapPointAll(frontCheck.position, 1);
-		//Debug.DrawLine (transform.position, frontCheck.position, Color.red, 1f);
+	//	Debug.DrawLine (transform.position, frontCheck.position, Color.red, 1f);
 
 		// 检测每一个对撞机
 		foreach (Collider2D c in frontHits)
@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviour
 		dead = true;
 
 		// 允许敌人通过指定的扭矩来旋转自己
-		GetComponent<Rigidbody2D>().fixedAngle = false;
+	//	GetComponent<Rigidbody2D>().fixedAngle = false;
 		GetComponent<Rigidbody2D>().AddTorque(Random.Range(deathSpinMin, deathSpinMax));
 
 		// 找到所有碰撞机，并触发他们

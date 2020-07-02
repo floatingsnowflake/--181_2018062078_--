@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69cea926d9f56ed4dad8fe46dd00fd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBonus: 0
+  healthBonus: 25
   collect: {fileID: 8300000, guid: e84171c8af43d0d479506dda3f37e315, type: 3}
 --- !u!1 &186576
 GameObject:
@@ -294,4 +294,4 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 4
